@@ -189,7 +189,7 @@ edit .prettierrc
 
 ####commitlint.vonfig.js
 
-```json
+```
 module.exports = {
   extends: ['@commitlint/config-angular'],
   parserPreset: 'conventional-changelog-conventionalcommits',
@@ -303,7 +303,7 @@ module.exports = {
 #### package.json
 
 ```json
-  "scripts": {
+  "scripts" : {
     "prepare": "husky install",
     "lint": "ng lint --fix",
     "format": "npx prettier \"src/**/*.{js,jsx,ts,tsx,html,css,scss}\" --write"
@@ -329,6 +329,16 @@ module.exports = {
 
 `npx cz`
 
+## Tests
+
+### TU
+
+`npm install karma-firefox-launcher karma-junit-reporter -D`
+
+#### comamand
+
+`ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -340,10 +350,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
 
