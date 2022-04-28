@@ -1,0 +1,26 @@
+{
+  "integrationFolder": "cypress/integration",
+  "supportFile": "cypress/support/index.ts",
+  "videosFolder": "cypress/videos",
+  "screenshotsFolder": "cypress/screenshots",
+  "pluginsFile": "cypress/plugins/index.ts",
+  "fixturesFolder": "cypress/fixtures",
+  "baseUrl": "http://localhost:4200",
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "reporterEnabled": "cypress-mochawesome-reporter, mocha-junit-reporter",
+    "cypressMochawesomeReporterReporterOptions": {
+      "reportDir": "cypress/reports",
+      "charts": true,
+      "html": true,
+      "json": true,
+      "reportPageTitle": "Angular best practice test e2e",
+      "embeddedScreenshots": true,
+      "inlineAssets": true
+    },
+    "mochaJunitReporterReporterOptions": {
+      "mochaFile": "cypress/reports/junit/results-[hash].xml"
+    }
+  },
+  "video": false
+}

@@ -31,7 +31,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 `npx husky add .husky/pre-push "ng build --aot true"`
 
-#### .husky/commit-msg
+#### `.husky/commit-msg`
 
 ```
 #!/bin/sh
@@ -40,18 +40,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 npx --no -- commitlint --edit $1
 ```
 
-#### .husky/pre-commit
+#### `.husky/pre-commit`
 
 ```
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
 ng lint --quiet --fix
-ng test  --code-coverage --watch=false --browsers=ChromeHeadless
 npx pretty-quick --staged
 ```
 
-#### .husky/pre-push
+#### `.husky/pre-push`
 
 ```
 #!/bin/sh
@@ -60,7 +59,7 @@ npx pretty-quick --staged
 ng build --aot true
 ```
 
-#### .eslintrc
+#### `.eslintrc`
 
 ```json
 {
@@ -128,7 +127,7 @@ ng build --aot true
 }
 ```
 
-edit .prettierignore
+#### `.prettierignore`
 
 ```
 package.json
@@ -138,7 +137,7 @@ dist
 node_modules
 ```
 
-edit .prettierrc
+#### `.prettierrc`
 
 ```json
 {
@@ -187,9 +186,9 @@ edit .prettierrc
 }
 ```
 
-####commitlint.vonfig.js
+#### `commitlint.config.js`
 
-```
+```javascript
 module.exports = {
   extends: ['@commitlint/config-angular'],
   parserPreset: 'conventional-changelog-conventionalcommits',
@@ -300,7 +299,7 @@ module.exports = {
 };
 ```
 
-#### package.json
+#### `package.json`
 
 ```json
   "scripts" : {
@@ -333,11 +332,199 @@ module.exports = {
 
 ### TU
 
+#### installation of libraries
+
 `npm install karma-firefox-launcher karma-junit-reporter -D`
 
-#### comamand
+#### configuration of libraries
+
+##### `karma.conf.js`
+
+```javascript
+// Karma configuration file, see link for more information
+// https://karma-runner.github.io/1.0/config/configuration-file.html
+
+module.exports = function (config) {
+  config.set({
+    basePath: '',
+    frameworks: ['jasmine', '@angular-devkit/build-angular'],
+    plugins: [
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
+      require('karma-firefox-launcher'),
+      require('karma-jasmine-html-reporter'),
+      require('karma-coverage'),
+      require('karma-junit-reporter'),
+      require('@angular-devkit/build-angular/plugins/karma'),
+    ],
+    client: {
+      jasmine: {
+        // you can add configuration options for Jasmine here
+        // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
+        // for example, you can disable the random execution with `random: false`
+        // or set a specific seed with `seed: 4321`
+      },
+      clearContext: false, // leave Jasmine Spec Runner output visible in browser
+    },
+    jasmineHtmlReporter: {
+      suppressAll: true, // removes the duplicated traces
+    },
+    coverageReporter: {
+      dir: require('path').join(__dirname, './coverage/angular_best_practice'),
+      subdir: '.',
+      reporters: [{ type: 'html' }, { type: 'text-summary' }, { type: 'cobertura' }],
+    },
+    reporters: ['progress', 'kjhtml', 'junit'],
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: true,
+    browsers: ['ChromeHeadlessCI', 'Chrome', 'Firefox'],
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'Chrome',
+        flags: ['--no-sandbox', '--headless', '--disable-gpu', '--remote-debugging-port=9222'],
+      },
+    },
+    singleRun: false,
+    restartOnFileChange: true,
+    junitReporter: {
+      outputDir: '', // results will be saved as $outputDir/$browserName.xml
+      outputFile: undefined, // if included, results will be saved as $outputDir/$browserName/$outputFile
+      suite: '', // suite will become the package name attribute in xml testsuite element
+      useBrowserName: true, // add browser name to report and classes names
+      nameFormatter: undefined, // function (browser, result) to customize the name attribute in xml testcase element
+      classNameFormatter: undefined, // function (browser, result) to customize the classname attribute in xml testcase element
+      properties: {}, // key value pair of properties to add to the <properties> section of the report
+      xmlVersion: null, // use '1' if reporting to be per SonarQube 6.2 XML format
+    },
+  });
+};
+```
+
+##### `.husky/pre-commit`
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+ng lint --quiet --fix
+ng test  --code-coverage --watch=false --browsers=ChromeHeadless
+npx pretty-quick --staged
+```
+
+#### command
 
 `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+### test e2e
+
+#### Reference website
+
+```
+https://dzone.com/articles/7-easy-steps-to-generate-xml-and-html-reports-in-cypress
+https://dev.to/ganeshsirsi/how-to-generate-both-junit-xml-and-html-reports-in-cypress-step-by-step-guide-4dgd
+https://www.npmjs.com/package/@cypress/schematic
+```
+
+#### installation of libraries
+
+`npm install cypress cypress-mochawesome-reporter junit-report-merger mocha-junit-reporter cypress-multi-reporters mocha -D`
+
+`ng add @cypress/schematic`
+
+#### configuration of libraries
+
+##### `cypress.json`
+
+```json
+{
+  "integrationFolder": "cypress/integration",
+  "supportFile": "cypress/support/index.ts",
+  "videosFolder": "cypress/videos",
+  "screenshotsFolder": "cypress/screenshots",
+  "pluginsFile": "cypress/plugins/index.ts",
+  "fixturesFolder": "cypress/fixtures",
+  "baseUrl": "http://localhost:4200",
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "reporterEnabled": "cypress-mochawesome-reporter, mocha-junit-reporter",
+    "cypressMochawesomeReporterReporterOptions": {
+      "reportDir": "cypress/reports",
+      "charts": true,
+      "html": true,
+      "json": true,
+      "reportPageTitle": "Angular best practice test e2e",
+      "embeddedScreenshots": true,
+      "inlineAssets": true
+    },
+    "mochaJunitReporterReporterOptions": {
+      "mochaFile": "cypress/reports/junit/results-[hash].xml"
+    }
+  },
+  "video": false
+}
+```
+
+##### `cypress/plugin/index.js`
+
+```javascript
+// Plugins enable you to tap into, modify, or extend the internal behavior of Cypress
+// For more info, visit https://on.cypress.io/plugins-api
+const { beforeRunHook, afterRunHook } = require('cypress-mochawesome-reporter/lib');
+const exec = require('child_process').execSync;
+module.exports = on => {
+  on('before:run', async details => {
+    console.log('override before:run');
+    await beforeRunHook(details);
+  });
+
+  on('after:run', async () => {
+    console.log('override after:run');
+    //if you are using other than Windows remove below line (having await exec)
+    await exec('npx jrm ./cypress/reports/junitreport.xml ./cypress/reports/junit/*.xml');
+    await afterRunHook();
+  });
+};
+```
+
+##### `cypress/support/index.js`
+
+```javascript
+import './commands';
+import 'cypress-mochawesome-reporter/register';
+```
+
+##### `package.json`
+
+```json
+{
+  "scripts": {
+    ...
+    "e2e": "ng e2e",
+    "clean:screenshots": "if exist cypress\\screenshots rmdir /s/q cypress\\screenshots",
+    "cy:run": "npm run clean:screenshots && cypress run --browser chrome"
+  }
+}
+```
+
+##### `.husky/pre-commit`
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+ng lint --quiet --fix
+ng test  --code-coverage --watch=false --browsers=ChromeHeadless
+npm run cy:run
+npx pretty-quick --staged
+```
+
+#### command
+
+`ng e2e` to execute the graphical e2e tests via [Cypress](https://docs.cypress.io/guides/overview/why-cypress).
+
+`npm run cy:run` to execute the terminal e2e tests via [Karma](https://karma-runner.github.io).
 
 ## Development server
 
