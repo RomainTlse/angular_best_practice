@@ -526,6 +526,163 @@ npx pretty-quick --staged
 
 `npm run cy:run` to execute the terminal e2e tests via [Karma](https://karma-runner.github.io).
 
+## Graphical charter
+
+You can find an example of the graphic charter here:
+
+`src/assets/graphical_charter`
+
+### Angular material
+
+#### Installation
+
+`ng add @angular/material`
+
+![alt text](src/assets/images/readme/add%20material.PNG)
+
+![alt text](src/assets/images/readme/custom%20material.PNG)
+
+![alt text](src/assets/images/readme/material%20typo.PNG)
+
+![alt text](src/assets/images/readme/material%20animation.PNG)
+
+#### Custom theme angular material
+
+change `custom-theme.scss` to `custom-theme.sass`
+
+update `angular.json` with
+
+```json
+"projects": {
+  "angular_best_practice": {
+    "architect": {
+      "build": {
+        "styles": [
+          "src/custom-theme.sass",
+          "src/styles.sass"
+        ],
+      }
+    }
+  }
+}
+```
+
+edit `custom-theme.sass`
+
+```sass
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat
+
+@include mat.core()
+
+@import 'assets/styles/variables'
+@import '~@angular/material/theming'
+
+// define fonts
+
+@font-face
+  font-family: "Montserrat"
+  font-weight: 400
+  src: url('/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf')
+
+@font-face
+  font-family: "Montserrat Italic"
+  font-weight: 400
+  src: url("/assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf")
+
+@font-face
+  font-family: "Montserrat Bold"
+  font-weight: 600
+  src: url('/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf')
+
+@font-face
+  font-family: "Montserrat Italic Bold"
+  font-weight: 600
+  src: url("/assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf")
+
+@font-face
+  font-family: "Montserrat Black"
+  font-weight: 800
+  src: url('/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf')
+
+@font-face
+  font-family: "Montserrat Italic Black"
+  font-weight: 800
+  src: url("/assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf")
+
+@font-face
+  font-family: "Overlock"
+  src: url("/assets/fonts/Overlock-Regular.ttf")
+
+@font-face
+  font-family: "Overlock Italic"
+  src: url("/assets/fonts/Overlock-Italic.ttf")
+
+@font-face
+  font-family: "Overlock Black"
+  font-weight: 900
+  src: url("/assets/fonts/Overlock-Black.ttf")
+
+@font-face
+  font-family: "Overlock Black Italic"
+  font-weight: 900
+  src: url("/assets/fonts/Overlock-BlackItalic.ttf")
+
+@font-face
+  font-family: "Overlock Bold"
+  font-weight: 700
+  src: url("/assets/fonts/Overlock-Bold.ttf")
+
+@font-face
+  font-family: "Overlock Bold Italic"
+  font-weight: 700
+  src: url("/assets/fonts/Overlock-BoldItalic.ttf")
+
+@font-face
+  font-family: "Overlock Italic"
+  src: url("/assets/fonts/Overlock-Italic.ttf")
+
+//define colors palettes
+$angular_best_practice-primary-palette: (50 : #fbe2ec, 100 : #f6b8cf, 200 : #f088af, 300 : #e9588f, 400 : #e53577, 500 : #e0115f, 600 : #dc0f57, 700 : #d80c4d,800 : #d30a43, 900 : #cb0532, A100 : #fff4f6, A200 : #ffc1cc, A400 : #ff8ea2, A700 : #ff758d, contrast: (50 : #000000, 100 : #000000, 200 : #000000, 300 : #000000, 400 : #ffffff, 500 : #ffffff, 600 : #ffffff, 700 : #ffffff, 800 : #ffffff, 900 : #ffffff, A100 : #000000, A200 : #000000, A400 : #000000, A700 : #000000))
+$angular_best_practice-accent-palette: (50 : #e4e6e7, 100 : #bcc0c3, 200 : #8f979b, 300 : #626d72, 400 : #414d54, 500 : #1f2e36, 600 : #1b2930, 700 : #172329, 800 : #121d22, 900 : #0a1216, A100 : #58c1ff, A200 : #25adff, A400 : #0097f1, A700 : #0087d8, contrast: (50 : #000000, 100 : #000000, 200 : #000000, 300 : #ffffff, 400 : #ffffff, 500 : #ffffff, 600 : #ffffff, 700 : #ffffff, 800 : #ffffff, 900 : #ffffff, A100 : #000000, A200 : #000000, A400 : #ffffff, A700 : #ffffff))
+$angular_best_practice-warn-palette: (50 : #f6e0e0, 100 : #e8b3b3, 200 : #d98080, 300 : #ca4d4d, 400 : #be2626, 500 : #b30000, 600 : #ac0000, 700 : #a30000, 800 : #9a0000, 900 : #8b0000, A100 : #ffb7b7, A200 : #ff8484, A400 : #ff5151, A700 : #ff3737, contrast: ( 50 : #000000, 100 : #000000, 200 : #000000, 300 : #ffffff, 400 : #ffffff, 500 : #ffffff, 600 : #ffffff, 700 : #ffffff, 800 : #ffffff, 900 : #ffffff, A100 : #000000, A200 : #000000, A400 : #000000, A700 : #ffffff))
+
+$angular_best_practice-primary: mat.define-palette($angular_best_practice-primary-palette)
+$angular_best_practice-accent: mat.define-palette($angular_best_practice-primary-palette, A200, A100, A400)
+$angular_best_practice-warn: mat.define-palette($angular_best_practice-warn-palette)
+
+$angular_best_practice-background-palette: (status-bar: map_get($angular_best_practice-accent-palette, 800),app-bar: map_get($angular_best_practice-accent-palette, 800), background: $primary--background, hover: rgba(white, 0.04), card: map_get($angular_best_practice-accent-palette, 700), dialog: map_get($angular_best_practice-accent-palette, 800),disabled-button: rgba(white, 0.25),raised-button: map_get($angular_best_practice-accent-palette, 800),focused-button: rgba(white, 0.25),selected-button: map_get($angular_best_practice-primary-palette, 200),selected-disabled-button: map_get($angular_best_practice-primary-palette, 100),disabled-button-toggle: black,unselected-chip: map_get($angular_best_practice-primary-palette, 300),disabled-list-option: rgba(white, 0.25),tooltip: map_get($angular_best_practice-accent-palette, 900))
+$angular_best_practice-foreground-palette: (base: map_get($angular_best_practice-accent-palette, 200),divider: rgba(#f088af, 0.25),dividers: rgba(#f088af, 0.25),disabled: rgba(white, 0.5),disabled-button: rgba(white, 0.5),disabled-text: rgba(white, 0.5),elevation: rgba(black, 0.2),hint-text: rgba(white, 0.2),secondary-text: rgba(white, 0.75),icon: rgba(white, 0.54),icons: rgba(white, 0.54),text: rgba(white, 0.87),slider-min: rgba(white, 0.57),slider-off: rgba(white, 0.26),slider-off-active: rgba(white, 0.58))
+
+// define theme
+@function create-esa-theme()
+  @return (primary: $angular_best_practice-primary, accent: $angular_best_practice-accent, warn: $angular_best_practice-warn, is-dark: true, foreground: $angular_best_practice-foreground-palette, background: $angular_best_practice-background-palette)
+
+$esa-material-custom-theme: create-esa-theme()
+@include angular-material-theme($esa-material-custom-theme)
+
+// define typographies
+$my-custom-typography-config: mat.define-typography-config($headline: mat.define-typography-level($font-family: 'Montserrat Bold', $font-weight: 500, $font-size: 48px, $line-height: 1.25, $letter-spacing: normal), $title: mat.define-typography-level($font-family: 'Montserrat Bold', $font-size: 32px, $line-height: 1.25, $letter-spacing: normal), $subheading-2: mat.define-typography-level($font-family: 'Montserrat Bold', $font-size: 28px, $line-height: 1.25, $letter-spacing: normal), $subheading-1: mat.define-typography-level($font-family: 'Montserrat Bold', $font-size: 24px, $line-height: 1.25, $letter-spacing: normal), $body-1: mat.define-typography-level($font-family: 'Montserrat', $font-size: 16px, $line-height: 1.5, $letter-spacing: 1px), $body-2: mat.define-typography-level($font-family: 'Montserrat bold', $font-size: 16px, $line-height: 1.5, $letter-spacing: normal), $caption: mat.define-typography-level($font-family: 'Montserrat', $font-size: 13px, $line-height: 1.5, $letter-spacing: normal), $button: mat.define-typography-level($font-family: 'Montserrat', $font-size: 12px), $input: mat.define-typography-level($font-family: 'Montserrat', $font-size: 16px, $line-height: 1, $letter-spacing: normal))
+@include mat.core($my-custom-typography-config)
+
+html, body
+  height: 100%
+
+body
+  margin: 0
+
+*
+  box-sizing: border-box
+
+.mat-button-wrapper
+  text-transform: uppercase
+  line-height: 1.5
+  letter-spacing: 0.25em
+
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
