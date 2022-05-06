@@ -13,3 +13,4 @@
 - mise en place des tests e2e
 - mise en place de la charte graphique
 - création de l'architecture de base
+- Mise en place de l'internationalisation
