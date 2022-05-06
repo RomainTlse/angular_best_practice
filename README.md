@@ -305,7 +305,11 @@ module.exports = {
   "scripts" : {
     "prepare": "husky install",
     "lint": "ng lint --fix",
-    "format": "npx prettier \"src/**/*.{js,jsx,ts,tsx,html,css,scss}\" --write"
+    "format": "npx prettier \"src/**/*.{js,jsx,ts,tsx,html,css,scss}\" --write",
+    "e2e": "ng e2e",
+    "cy:run": "cypress run --browser chrome",
+    "cy:serve": "ng serve",
+    "cy:hook": "start-server-and-test cy:serve http://localhost:4200 cy:run"
   },
   "config": {
     "commitizen": {

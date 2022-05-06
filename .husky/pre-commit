@@ -3,5 +3,5 @@
 
 ng lint --quiet --fix
 ng test  --code-coverage --watch=false --browsers=ChromeHeadless
-npm run cy:run
+npm run cy:hook
 npx pretty-quick --staged
