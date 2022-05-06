@@ -14,3 +14,4 @@
 - mise en place de la charte graphique
 - création de l'architecture de base
 - Mise en place de l'internationalisation
+- Mise a jour config pre-commit pour cypress
