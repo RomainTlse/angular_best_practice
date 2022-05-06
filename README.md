@@ -683,6 +683,370 @@ body
 
 ```
 
+#### Création du fichiers `variables.sass`
+
+Dans `src/assets/`
+
+```
+mkdir styles && cd $_ && nano variables.sass
+```
+
+Dans `src\app\app-routing.module.ts` modifier le chargement des routes
+
+```typescript
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
+```
+
+## Mise en place de l'architecture de base
+
+### `core`
+
+##### Architecture de base du module
+
+```
+core
+├── auth
+├── ui
+├── utils
+└── core.module.ts
+```
+
+#### Initialisation du module `core`
+
+```
+ng g m core --module=app
+```
+
+#### Création du module `auth`
+
+##### Architecture de base du module
+
+TODO à revoir
+
+```
+auth
+├── guards
+├── interceptors
+├── interfaces
+├── pages
+│   └── login
+├── services
+└── auth.module.ts
+```
+
+##### Initialisation du module
+
+```
+ng g m core/auth --module=core
+```
+
+#### Création du module `ui`
+
+##### Architecture de base du module
+
+```
+ui
+├── components
+│   ├── loader
+│   └── message
+├── interfaces
+│   ├── breadcrump.ts
+│   ├── loader.ts
+│   └── message.ts
+├── pages
+│   ├── page-in-progress
+│   └── page-not-found
+├── services
+│   ├── breadcrump.services.ts
+│   ├── loader.services.ts
+│   └── message.services.ts
+├── shared
+│   ├── breadcrumps
+│   ├── footer
+│   ├── header
+│   └── menu
+└── ui.module.ts
+```
+
+##### Initialisation du module
+
+```
+ng g m core/ui --module=core
+```
+
+##### Initialisation des components
+
+###### `loader`
+
+```
+ng g c core/ui/components/loader --module=core/ui
+```
+
+###### `message`
+
+```
+ng g c core/ui/components/message --module=core/ui
+```
+
+##### Initialisation des interfaces
+
+###### `breadcrumb`
+
+```
+ng g interface core/ui/interfaces/breadcrumb
+```
+
+###### `loader`
+
+```
+ng g interface core/ui/interfaces/loader
+```
+
+###### `message`
+
+```
+ng g interface core/ui/interfaces/message
+```
+
+##### Initialisation des pages
+
+###### `page-in-progress`
+
+```
+ng g m core/ui/pages/page-in-progress
+ng g c core/ui/pages/page-in-progress --module=core/ui/pages/page-in-progress
+```
+
+###### `page-not-found`
+
+```
+ng g m core/ui/pages/page-not-found
+ng g c core/ui/pages/page-not-found --module=core/ui/pages/page-not-found
+```
+
+##### Initialisation des services
+
+###### `breadcrumb`
+
+```
+ng g s core/ui/services/breadcrumb
+```
+
+###### `loader`
+
+```
+ng g s core/ui/services/loader
+```
+
+###### `message`
+
+```
+ng g s core/ui/services/message
+```
+
+##### Initialisation des composants 'shared'
+
+###### `breadcrumb`
+
+```
+ng g c core/ui/shared/breadcrumb --module=core/ui
+```
+
+###### `footer`
+
+```
+ng g c core/ui/shared/footer --module=core/ui
+```
+
+###### `header`
+
+```
+ng g c core/ui/shared/header --module=core/ui
+```
+
+###### `menu`
+
+```
+ng g c core/ui/shared/menu --module=core/ui
+```
+
+#### Création du module `utils`
+
+##### Architecture de base du module
+
+```
+utils
+├── components
+│   └── sass-helper
+├── interceptors
+│   └── http-request.interceptor.ts
+├── services
+│   └── http-request.services.ts
+└── ui.module.ts
+```
+
+##### Initialisation du module
+
+```
+ng g m core/utils --module=core
+```
+
+##### Initialisation des components
+
+###### `sass-helper`
+
+```
+ng g c core/utils/components/sass-helper --module=core/utils
+```
+
+##### Initialisation des interceptors
+
+###### `http-request`
+
+```
+ng g interceptor core/utils/interceptors/http-request
+```
+
+##### Initialisation des services
+
+###### `http-request`
+
+```
+ng g s core/utils/services/http-request
+```
+
+### `Modules`
+
+#### `graphical-charter`
+
+##### Architecture de base du module
+
+```
+graphical-charter
+├── components
+├── pages
+│   └── home
+├── graphical-charter.module.ts
+└── graphical-charter-routing.module.ts
+```
+
+##### Initialisation du module `graphical-charter`
+
+```
+ng g m modules/graphical-charter --routing --module=app
+```
+
+###### Initialisation des pages
+
+####### `page-in-progress`
+
+```
+ng g m modules/graphical-charter/pages/home --module=modules/graphical-charter
+ng g c modules/graphical-charter/pages/home --module=modules/graphical-charter/pages/home
+```
+
+Dans `src\app\modules\graphical-charter\graphical-charter.module.ts` modifier les routes
+
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+
+const routes: Routes = [
+  {
+    path: 'graphicalcharter',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
+        component: HomeComponent,
+      },
+    ],
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class GraphicalCharterRoutingModule {}
+```
+
+#### `cooking-recipe`
+
+##### Architecture de base du module
+
+```
+cooking-recipe
+├── components
+├── pages
+│   └── home
+├── cooking-recipe.module.ts
+└── cooking-recipe-routing.module.ts
+```
+
+##### Initialisation du module `cooking-recipe`
+
+```
+ng g m modules/cooking-recipe --routing --module=app
+```
+
+###### Initialisation des pages
+
+####### `page-in-progress`
+
+```
+ng g m modules/cooking-recipe/pages/home --module=modules/cooking-recipe
+ng g c modules/cooking-recipe/pages/home --module=modules/cooking-recipe/pages/home
+```
+
+Dans `src\app\modules\cooking-recipe\cooking-recipe-routing.module.ts` modifier les routes
+
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { PageNotFoundComponent } from '../../core/ui/pages/page-not-found/page-not-found.component';
+
+const routes: Routes = [
+  {
+    path: 'cookingrecipe',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
+        component: HomeComponent,
+      },
+    ],
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    loadChildren: () => import('../../core/ui/pages/page-not-found/page-not-found.module').then(m => m.PageNotFoundModule),
+    component: PageNotFoundComponent,
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class CookingRecipeRoutingModule {}
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
