@@ -7,6 +7,7 @@
     "build": "ng build",
     "build:hook": "ng build --aot true",
     "build:ci": "ng build --aot true --configuration=production",
+    "build:docker": "ng build --aot true --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:hook": "ng test  --code-coverage --watch=false --browsers=ChromeHeadless",

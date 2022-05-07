@@ -1,0 +1,11 @@
+.angular/
+.github/
+.husky/
+.vscode/
+coverage/
+cypress/
+dist/
+node_modules/
+.git
+.gitignore
+.prettierignore

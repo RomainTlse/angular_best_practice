@@ -776,6 +776,77 @@ export class AppRoutingModule {}
 <meta name="theme-color" content="#ffffff" />
 ```
 
+## Mise en place de l'intégration continue
+
+TODO
+
+## Mise en place de Docker
+
+### `package.json`
+
+```json
+  "scripts" : {
+    "build:docker": "ng build --aot true --configuration=production",
+  },
+```
+
+### `Dockerfile`
+
+```
+
+# Stage 1: Compile and Build angular codebase
+
+# Use official node image as the base image
+FROM node:16.14.0-alpine as build
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Add the source code to app
+COPY . .
+
+# Install all the dependencies
+RUN npm install
+
+# Generate the build of the application
+RUN npm run build:docker
+
+
+# Stage 2: Serve app with nginx server
+
+# Use official nginx image as the base image
+FROM nginx:1.21-alpine
+
+# Copy the build output to replace the default nginx contents.
+COPY --from=build /usr/src/app/dist/angular_best_practice /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+```
+
+### .dockerignore
+
+```
+.angular/
+.github/
+.husky/
+.vscode/
+coverage/
+cypress/
+dist/
+node_modules/
+.git
+.gitignore
+.prettierignore
+```
+
+### Commande
+
+`docker build . -t maas-public-site`
+
+`docker run -p 8080:80 maas-public-site` --> `http://localhost:8080/`
+
 ## Création de l'architecture de base
 
 ### `core`
