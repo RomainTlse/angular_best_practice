@@ -31,6 +31,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 `npx husky add .husky/pre-push "ng build --aot true"`
 
+#### `package.json`
+
+```json
+  "scripts" : {
+    "build": "ng build",
+    "build:hook": "ng build --aot true",
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+```
+
 #### `.husky/commit-msg`
 
 ```
@@ -299,6 +313,16 @@ module.exports = {
 };
 ```
 
+#### `.husky/pre-commit`
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+ng lint --quiet --fix
+npx pretty-quick --staged
+```
+
 #### `package.json`
 
 ```json
@@ -400,6 +424,20 @@ module.exports = function (config) {
     },
   });
 };
+```
+
+#####`package.json`
+
+```json
+  "scripts" : {
+    "build": "ng build",
+    "build:hook": "ng build --aot true",
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
 ```
 
 ##### `.husky/pre-commit`
@@ -516,7 +554,7 @@ import 'cypress-mochawesome-reporter/register';
 
 ng lint --quiet --fix
 ng test  --code-coverage --watch=false --browsers=ChromeHeadless
-npm run npm run cy:hook
+npm run cy:hook
 npx pretty-quick --staged
 ```
 

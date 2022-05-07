@@ -5,15 +5,21 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:hook": "ng build --aot true",
+    "build:ci": "ng build --aot true --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:hook": "ng test  --code-coverage --watch=false --browsers=ChromeHeadless",
+    "test:ci": "ng test  --code-coverage --watch=false --browsers=ChromeHeadless",
     "prepare": "husky install",
-    "lint": "ng lint --fix",
+    "lint": "ng lint",
+    "lint:hook": "ng lint --fix",
     "format": "npx prettier \"src/**/*.{js,jsx,ts,tsx,html,css,scss}\" --write",
     "e2e": "ng e2e",
     "cy:run": "cypress run --browser chrome",
     "cy:serve": "ng serve",
-    "cy:hook": "start-server-and-test cy:serve http://localhost:4200 cy:run"
+    "cy:hook": "start-server-and-test cy:serve http://localhost:4200 cy:run",
+    "cy:ci": "start-server-and-test cy:serve http://localhost:4200 cy:run"
   },
   "config": {
     "commitizen": {
