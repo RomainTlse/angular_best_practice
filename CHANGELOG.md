@@ -16,3 +16,4 @@
 - Mise en place de l'internationalisation
 - Mise a jour config pre-commit pour cypress
 - Mise en place de l'intégration continue
+- Mise en place de Docker
