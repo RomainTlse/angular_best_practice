@@ -31,48 +31,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 `npx husky add .husky/pre-push "ng build --aot true"`
 
-#### `package.json`
-
-```json
-  "scripts" : {
-    "build": "ng build",
-    "build:hook": "ng build --aot true",
-  },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
-  },
-```
-
-#### `.husky/commit-msg`
-
-```
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-npx --no -- commitlint --edit $1
-```
-
-#### `.husky/pre-commit`
-
-```
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-ng lint --quiet --fix
-npx pretty-quick --staged
-```
-
-#### `.husky/pre-push`
-
-```
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-ng build --aot true
-```
-
 #### `.eslintrc`
 
 ```json
@@ -313,22 +271,15 @@ module.exports = {
 };
 ```
 
-#### `.husky/pre-commit`
-
-```
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-ng lint --quiet --fix
-npx pretty-quick --staged
-```
-
 #### `package.json`
 
 ```json
   "scripts" : {
-    "prepare": "husky install",
-    "lint": "ng lint --fix",
+    "build:hook": "ng build --aot true",
+    "lint:hook": "ng lint --quiet --fix",
+    ...
+    "lint": "ng lint",
+    "lint:hook": "ng lint --quiet --fix",
     "format": "npx prettier \"src/**/*.{js,jsx,ts,tsx,html,css,scss}\" --write",
   },
   "config": {
@@ -336,6 +287,34 @@ npx pretty-quick --staged
       "path": "@commitlint/cz-commitlint"
     }
   },
+```
+
+#### `.husky/commit-msg`
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no -- commitlint --edit $1
+```
+
+#### `.husky/pre-commit`
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run lint:hook
+npx pretty-quick --staged
+```
+
+#### `.husky/pre-push`
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run build:hook
 ```
 
 ### comamand
@@ -426,28 +405,28 @@ module.exports = function (config) {
 };
 ```
 
-#####`package.json`
+##### `package.json`
+
+rajouter les lignes suivantes :
 
 ```json
   "scripts" : {
-    "build": "ng build",
-    "build:hook": "ng build --aot true",
-  },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
+    "test": "ng test",
+    "test:hook": "ng test  --code-coverage --watch=false --browsers=ChromeHeadless",
+    "test:ci": "ng test  --code-coverage --watch=false --browsers=ChromeHeadless",
   },
 ```
 
 ##### `.husky/pre-commit`
 
+mofidier le fichier pour obtenir :
+
 ```
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-ng lint --quiet --fix
-ng test  --code-coverage --watch=false --browsers=ChromeHeadless
+npm run lint:hook
+npm run test:hook
 npx pretty-quick --staged
 ```
 
@@ -534,26 +513,30 @@ import 'cypress-mochawesome-reporter/register';
 
 ##### `package.json`
 
+Rajouter les lignes suivantes :
+
 ```json
 {
   "scripts": {
-    ...
     "e2e": "ng e2e",
     "cy:run": "cypress run --browser chrome",
     "cy:serve": "ng serve",
-    "cy:hook": "start-server-and-test cy:serve http://localhost:4200 cy:run"
+    "cy:hook": "start-server-and-test cy:serve http://localhost:4200 cy:run",
+    "cy:ci": "start-server-and-test cy:serve http://localhost:4200 cy:run"
   }
 }
 ```
 
 ##### `.husky/pre-commit`
 
+Modifier le fichier pour obtenir :
+
 ```
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-ng lint --quiet --fix
-ng test  --code-coverage --watch=false --browsers=ChromeHeadless
+npm run lint:hook
+npm run test:hook
 npm run cy:hook
 npx pretty-quick --staged
 ```
@@ -778,9 +761,44 @@ export class AppRoutingModule {}
 
 ## Mise en place de l'intégration continue
 
-TODO
+### Référence
+
+https://betterprogramming.pub/ci-cd-for-angular-developers-be9a1485d22b
+
+### Configuration
+
+Ajouter le fichier `.github/workflows/ci.yml` avec le contenu suivant :
+
+```yaml
+name: CI
+on: push
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ✅
+        uses: actions/checkout@v2
+      - name: Setup 🏗
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.14.0
+          cache: 'npm'
+      - name: Install ⚙️
+        run: npm ci
+      - name: Build 🛠
+        run: npm run build:ci
+      - name: Test Unitaire 📋
+        run: npm run test:ci
+      - name: Test e2e 📋
+        run: npm run cy:ci
+```
 
 ## Mise en place de Docker
+
+### Référence
+
+https://medium.com/@jfgreffier/conteneuriser-votre-application-angular-avec-docker-et-nginx-6378b63a73f9
+https://www.indellient.com/blog/how-to-dockerize-an-angular-application-with-nginx/
 
 ### `package.json`
 
