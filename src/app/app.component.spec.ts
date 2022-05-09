@@ -34,7 +34,7 @@ describe('AppComponent', () => {
   it(`should have as title 'angular_best_practice'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular_best_practice');
+    expect(app.title).toEqual('Angular Best Practice');
   });
 
   it('should render title', () => {
