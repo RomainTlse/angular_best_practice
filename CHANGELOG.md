@@ -17,3 +17,5 @@
 - Mise a jour config pre-commit pour cypress
 - Mise en place de l'intégration continue
 - Mise en place de Docker
+- Mise en place du déploiement continu
+- Mise à jour du titre de l'application
