@@ -793,11 +793,84 @@ jobs:
         run: npm run cy:ci
 ```
 
+## Mise en place déploiement continue
+
+### Référence
+
+https://dev.to/sandeepbalachandran/how-to-build-and-deploy-angular-application-to-surge-using-github-actions-38h9
+https://localcoder.org/only-run-job-on-specific-branch-with-github-actions
+
+### Installation
+
+`npm install surge --save-dev`
+
+### Configuration
+
+`node_modules/.bin/surge login`
+`./node_modules/.bin/surge -p dist/ --domain angular-best-pratice-stage.surge.sh`
+
+Créer un token, si ça n'a pas été fait :
+
+`./node_modules/.bin/surge token`
+
+Définir `SURGE_DOMAIN` dans github avec `angular-best-pratice-stage.surge.sh`:
+Définir `SURGE_TOKEN` dans github avec le token créé précédement :
+
+`settings` -> `Secrets` -> `New repository secret`
+
+```yaml
+name: CI
+on: push
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ✅
+        uses: actions/checkout@v2
+      - name: Setup 🏗
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.14.0
+          cache: 'npm'
+      - name: Install ⚙️
+        run: npm ci
+      - name: Test Unitaire 📋
+        run: npm run test:ci
+      - name: Test e2e 📋
+        run: npm run cy:ci
+      - name: Build 🛠
+        run: npm run build:ci
+      - name: Archive build
+        if: success()
+        uses: actions/upload-artifact@v1
+        with:
+          name: deploy_dist
+          path: dist
+  deploy:
+    runs-on: ubuntu-latest
+    needs: ci
+    name: Deploying to surge
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download build
+        uses: actions/download-artifact@v1
+        with:
+          name: deploy_dist
+      - name: Install surge and fire deployment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.14.0
+      - run: npm install -g surge
+      - run: surge ./deploy_dist/angular_best_practice ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+```
+
 ## Mise en place de Docker
 
 ### Référence
 
 https://medium.com/@jfgreffier/conteneuriser-votre-application-angular-avec-docker-et-nginx-6378b63a73f9
+
 https://www.indellient.com/blog/how-to-dockerize-an-angular-application-with-nginx/
 
 ### `package.json`
