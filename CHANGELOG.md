@@ -19,3 +19,4 @@
 - Mise en place de Docker
 - Mise en place du déploiement continu
 - Mise à jour du titre de l'application
+- Mise à jour de la charte graphique

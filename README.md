@@ -634,36 +634,9 @@ edit `custom-theme.sass`
   src: url("/assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf")
 
 @font-face
-  font-family: "Overlock"
-  src: url("/assets/fonts/Overlock-Regular.ttf")
+  font-family: 'Iceland'
+  src: url("/assets/fonts/Iceland/Iceland-Regular.ttf")
 
-@font-face
-  font-family: "Overlock Italic"
-  src: url("/assets/fonts/Overlock-Italic.ttf")
-
-@font-face
-  font-family: "Overlock Black"
-  font-weight: 900
-  src: url("/assets/fonts/Overlock-Black.ttf")
-
-@font-face
-  font-family: "Overlock Black Italic"
-  font-weight: 900
-  src: url("/assets/fonts/Overlock-BlackItalic.ttf")
-
-@font-face
-  font-family: "Overlock Bold"
-  font-weight: 700
-  src: url("/assets/fonts/Overlock-Bold.ttf")
-
-@font-face
-  font-family: "Overlock Bold Italic"
-  font-weight: 700
-  src: url("/assets/fonts/Overlock-BoldItalic.ttf")
-
-@font-face
-  font-family: "Overlock Italic"
-  src: url("/assets/fonts/Overlock-Italic.ttf")
 
 //define colors palettes
 $angular_best_practice-primary-palette: (50 : #fbe2ec, 100 : #f6b8cf, 200 : #f088af, 300 : #e9588f, 400 : #e53577, 500 : #e0115f, 600 : #dc0f57, 700 : #d80c4d,800 : #d30a43, 900 : #cb0532, A100 : #fff4f6, A200 : #ffc1cc, A400 : #ff8ea2, A700 : #ff758d, contrast: (50 : #000000, 100 : #000000, 200 : #000000, 300 : #000000, 400 : #ffffff, 500 : #ffffff, 600 : #ffffff, 700 : #ffffff, 800 : #ffffff, 900 : #ffffff, A100 : #000000, A200 : #000000, A400 : #000000, A700 : #000000))
@@ -685,7 +658,7 @@ $esa-material-custom-theme: create-esa-theme()
 @include angular-material-theme($esa-material-custom-theme)
 
 // define typographies
-$my-custom-typography-config: mat.define-typography-config($headline: mat.define-typography-level($font-family: 'Montserrat Bold', $font-weight: 500, $font-size: 48px, $line-height: 1.25, $letter-spacing: normal), $title: mat.define-typography-level($font-family: 'Montserrat Bold', $font-size: 32px, $line-height: 1.25, $letter-spacing: normal), $subheading-2: mat.define-typography-level($font-family: 'Montserrat Bold', $font-size: 28px, $line-height: 1.25, $letter-spacing: normal), $subheading-1: mat.define-typography-level($font-family: 'Montserrat Bold', $font-size: 24px, $line-height: 1.25, $letter-spacing: normal), $body-1: mat.define-typography-level($font-family: 'Montserrat', $font-size: 16px, $line-height: 1.5, $letter-spacing: 1px), $body-2: mat.define-typography-level($font-family: 'Montserrat bold', $font-size: 16px, $line-height: 1.5, $letter-spacing: normal), $caption: mat.define-typography-level($font-family: 'Montserrat', $font-size: 13px, $line-height: 1.5, $letter-spacing: normal), $button: mat.define-typography-level($font-family: 'Montserrat', $font-size: 12px), $input: mat.define-typography-level($font-family: 'Montserrat', $font-size: 16px, $line-height: 1, $letter-spacing: normal))
+$my-custom-typography-config: mat.define-typography-config($headline: mat.define-typography-level($font-family: 'Iceland', $font-weight: 500, $font-size: 48px, $line-height: 1.25, $letter-spacing: normal), $title: mat.define-typography-level($font-family: 'Iceland', $font-size: 32px, $line-height: 1.25, $letter-spacing: normal), $subheading-2: mat.define-typography-level($font-family: 'Iceland', $font-size: 28px, $line-height: 1.25, $letter-spacing: normal), $subheading-1: mat.define-typography-level($font-family: 'Iceland', $font-size: 24px, $line-height: 1.25, $letter-spacing: normal), $body-1: mat.define-typography-level($font-family: 'Montserrat', $font-size: 16px, $line-height: 1.5, $letter-spacing: 2px), $body-2: mat.define-typography-level($font-family: 'Montserrat bold', $font-size: 16px, $line-height: 1.5, $letter-spacing: normal), $caption: mat.define-typography-level($font-family: 'Montserrat', $font-size: 13px, $line-height: 1.5, $letter-spacing: normal), $button: mat.define-typography-level($font-family: 'Montserrat', $font-size: 12px), $input: mat.define-typography-level($font-family: 'Montserrat', $font-size: 16px, $line-height: 1, $letter-spacing: normal))
 @include mat.core($my-custom-typography-config)
 
 html, body
@@ -701,8 +674,15 @@ body
   text-transform: uppercase
   line-height: 1.5
   letter-spacing: 0.25em
-
 ```
+
+#### Ajout des polices
+
+Telecharger les polices suivantes et les copiers dans `assets/fonts` :
+
+https://fonts.google.com/specimen/Montserrat?query=Montserrat
+
+https://fonts.google.com/specimen/Iceland?category=Display
 
 #### Création du fichiers `variables.sass`
 
