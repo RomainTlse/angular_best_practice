@@ -1,0 +1,7 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run lint:hook
+npm run test:hook
+npm run cy:hook
+npx pretty-quick --staged

@@ -31,6 +31,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.sass",
               "src/styles.sass"
             ],
             "scripts": []
@@ -103,9 +104,52 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "angular_best_practice:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular_best_practice:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "angular_best_practice:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular_best_practice:serve:production"
+            }
+          }
         }
       }
     }
   },
-  "defaultProject": "angular_best_practice"
+  "defaultProject": "angular_best_practice",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

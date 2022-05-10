@@ -1,16 +1,27 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { MatAutocomplete } from '@angular/material/autocomplete';
+import { MatMenu } from '@angular/material/menu';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { createTranslateLoader } from './app.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        TranslateModule.forRoot({
+          defaultLanguage: 'fr',
+          loader: {
+            provide: TranslateLoader,
+            useFactory: createTranslateLoader,
+            deps: [HttpClient],
+          },
+          isolate: true,
+        }),
+        HttpClientModule,
       ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent, MatAutocomplete, MatMenu],
     }).compileComponents();
   });
 
@@ -23,13 +34,11 @@ describe('AppComponent', () => {
   it(`should have as title 'angular_best_practice'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular_best_practice');
+    expect(app.title).toEqual('Angular Best Practice');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('angular_best_practice app is running!');
   });
 });
