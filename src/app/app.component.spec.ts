@@ -5,6 +5,7 @@ import { MatMenu } from '@angular/material/menu';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { createTranslateLoader } from './app.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -20,6 +21,7 @@ describe('AppComponent', () => {
           isolate: true,
         }),
         HttpClientModule,
+        RouterTestingModule,
       ],
       declarations: [AppComponent, MatAutocomplete, MatMenu],
     }).compileComponents();

@@ -1,1 +1,25 @@
-<p>loader works!</p>
+<section class="abp--section--loader" *ngIf="show">
+  <div class="abp--loader--title">Loading</div>
+  <div class="abp--loader--subtitle">Please wait</div>
+  <div class="abp--loader--container">
+    <div class="abp--animation--container">
+      <div class="abp--lightning--container">
+        <div class="abp--lightning white"></div>
+        <div class="abp--lightning red"></div>
+      </div>
+      <div class="abp--boom--container">
+        <div class="abp--shape abp--circle abp--big white"></div>
+        <div class="abp--shape abp--circle white"></div>
+        <div class="abp--shape abp--triangle abp--big yellow"></div>
+        <div class="abp--shape abp--disc white"></div>
+        <div class="abp--shape abp--triangle blue"></div>
+      </div>
+      <div class="abp--boom--container abp--second">
+        <div class="abp--shape abp--circle abp--big white"></div>
+        <div class="abp--shape abp--circle white"></div>
+        <div class="abp--shape abp--disc white"></div>
+        <div class="abp--shape abp--triangle blue"></div>
+      </div>
+    </div>
+  </div>
+</section>
