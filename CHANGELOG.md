@@ -24,3 +24,4 @@
 ##[1.1.0] 14/05/2022
 
 - Initialisation de la release 1.1.0
+- Mise en place du loader

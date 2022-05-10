@@ -1,0 +1,254 @@
+.abp--section--loader
+  display: flex
+  align-content: center
+  justify-content: center
+  position: absolute
+  top: 0
+  left: 0
+  height: 100vh
+  width: 100vw
+  flex-wrap: wrap
+
+  &:after
+    content: ''
+    width: 100%
+    height: 100%
+    background: black
+    opacity: 0.8
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+
+  .abp--loader--container
+    display: block
+    position: relative
+    width: 800px
+    max-width: 100%
+    margin: 0 auto
+
+    .abp--animation--container
+      display: block
+      position: relative
+      width: 800px
+      max-width: 100%
+      margin: 0 auto
+      z-index: 2
+
+      .abp--lightning--container
+        position: absolute
+        top: 50%
+        left: 0
+        display: flex
+        transform: translateY(-50%)
+
+        .abp--lightning
+          position: absolute
+          display: block
+          height: 12px
+          width: 12px
+          border-radius: 12px
+          transform-origin: 6px 6px
+          animation-name: woosh
+          animation-duration: 1.5s
+          animation-iteration-count: infinite
+          animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950)
+          animation-direction: alternate
+
+          &.white
+            background-color: white
+            box-shadow: 0 50px 50px 0 transparentize(white, 0.7)
+
+
+          &.red
+            background-color: #fc7171
+            box-shadow: 0 50px 50px 0 transparentize(#fc7171, 0.7)
+            animation-delay: 0.2s
+
+      .abp--boom--container
+        position: absolute
+        display: flex
+        width: 80px
+        height: 80px
+        text-align: center
+        align-items: center
+        transform: translateY(-50%)
+        left: 200px
+        top: -145px
+
+        .abp--shape
+          display: inline-block
+          position: relative
+          opacity: 0
+          transform-origin: center center
+
+          &.abp--triangle
+            width: 0
+            height: 0
+            border-style: solid
+            transform-origin: 50% 80%
+            animation-duration: 1s
+            animation-timing-function: ease-out
+            animation-iteration-count: infinite
+            margin-left: -15px
+            border-width: 0 2.5px 5px 2.5px
+            border-color: transparent transparent #42e599 transparent
+            animation-name: boom-triangle
+
+            &.abp--big
+              margin-left: -25px
+              border-width: 0 5px 10px 5px
+              border-color: transparent transparent #fade28 transparent
+              animation-name: boom-triangle-big
+
+
+          &.abp--disc
+            width: 8px
+            height: 8px
+            border-radius: 100%
+            background-color: #d15ff4
+            animation-name: boom-disc
+            animation-duration: 1s
+            animation-timing-function: ease-out
+            animation-iteration-count: infinite
+
+
+          &.abp--circle
+            width: 20px
+            height: 20px
+            animation-name: boom-circle
+            animation-duration: 1s
+            animation-timing-function: ease-out
+            animation-iteration-count: infinite
+            border-radius: 100%
+            margin-left: -30px
+
+            &.white
+              border: 1px solid white
+
+
+            &.abp--big
+              width: 40px
+              height: 40px
+              margin-left: 0
+
+              &.white
+                border: 2px solid white
+
+          &:after
+            background-color: rgba(178, 215, 232, 0.2)
+
+
+        .abp--shape
+          &.abp--triangle, &.abp--circle, &.abp--circle.big, &.abp--disc
+            animation-delay: .38s
+            animation-duration: 3s
+
+
+          &.abp--circle
+            animation-delay: 0.6s
+
+
+        &.abp--second
+          left: 485px
+          top: 155px
+          .abp--shape
+            &.abp--triangle, &.abp--circle, &.abp--circle.big, &.abp--disc
+              animation-delay: 1.9s
+
+            &.abp--circle
+              animation-delay: 2.15s
+
+  .abp--loader--title,
+  .abp--loader--subtitle
+    z-index: 2
+    font-family: 'Iceland', cursive
+    width: 100%
+    text-align: center
+
+  .abp--loader--title
+    font-size: 40px
+    font-weight: 700
+
+  .abp--loader--subtitle
+    font-size: 32px
+
+@keyframes woosh
+  0%
+    width: 12px
+    transform: translate(0px, 0px) rotate(-35deg)
+
+  15%
+    width: 50px
+
+  30%
+    width: 12px
+    transform: translate(214px, -150px) rotate(-35deg)
+
+  30.1%
+    transform: translate(214px, -150px) rotate(46deg)
+
+  50%
+    width: 110px
+
+  70%
+    width: 12px
+    transform: translate(500px, 150px) rotate(46deg)
+
+  70.1%
+    transform: translate(500px, 150px) rotate(-37deg)
+
+
+  85%
+    width: 50px
+
+  100%
+    width: 12px
+    transform: translate(700px, 0) rotate(-37deg)
+
+
+@keyframes boom-circle
+  0%
+    opacity: 0
+
+  5%
+    opacity: 1
+
+  30%
+    opacity: 0
+    transform: scale(3)
+
+@keyframes boom-triangle-big
+  0%
+    opacity: 0
+
+  5%
+    opacity: 1
+
+
+  40%
+    opacity: 0
+    transform: scale(2.5) translate(50px, -50px) rotate(360deg)
+
+@keyframes boom-triangle
+  0%
+    opacity: 0
+
+  5%
+    opacity: 1
+
+  30%
+    opacity: 0
+    transform: scale(3) translate(20px, 40px) rotate(360deg)
+
+
+@keyframes boom-disc
+  0%
+    opacity: 0
+
+  5%
+    opacity: 1
+
+  40%
+    opacity: 0
+    transform: scale(2) translate(-70px, -30px)

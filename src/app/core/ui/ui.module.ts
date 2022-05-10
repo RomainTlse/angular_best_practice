@@ -10,5 +10,6 @@ import { MenuComponent } from './shared/menu/menu.component';
 @NgModule({
   declarations: [LoaderComponent, MessageComponent, BreadcrumbComponent, FooterComponent, HeaderComponent, MenuComponent],
   imports: [CommonModule],
+  exports: [LoaderComponent],
 })
 export class UiModule {}
