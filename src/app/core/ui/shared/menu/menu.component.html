@@ -14,9 +14,7 @@
   </mat-drawer>
   <mat-drawer-content>
     <section class="abp--section--page--container">
-      <button mat-icon-button aria-label="Icon-button with menu icon">
-        <mat-icon aria-hidden="false" aria-label="Menu" (click)="drawer.toggle()"> menu</mat-icon>
-      </button>
+      <app-header [drawer]="drawer"></app-header>
       <router-outlet></router-outlet>
     </section>
   </mat-drawer-content>

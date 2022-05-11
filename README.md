@@ -1114,7 +1114,11 @@ utils
 │   └── sass-helper
 ├── interceptors
 │   └── http-request.interceptor.ts
+├── interfaces
+│   └── config.ts
 ├── services
+│   ├── external-link.service.ts
+│   ├── global-config.service.ts
 │   └── http-request.services.ts
 └── ui.module.ts
 ```
@@ -1141,7 +1145,27 @@ ng g c core/utils/components/sass-helper --module=core/utils
 ng g interceptor core/utils/interceptors/http-request
 ```
 
+##### Initialisation des interfaces
+
+###### `config`
+
+```
+ng g interface core/utils/interfaces/config
+```
+
 ##### Initialisation des services
+
+###### `external-link`
+
+```
+ng g s core/utils/services/external-link
+```
+
+###### `global-config`
+
+```
+ng g s core/utils/services/global-config
+```
 
 ###### `http-request`
 
