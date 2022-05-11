@@ -1,3 +1,6 @@
 {
-  "hello": "Bonjour tout le monde !"
+  "loader": {
+    "loading": "Chargement",
+    "pleaseWait": "Patientez, s'il vous plaît"
+  }
 }
