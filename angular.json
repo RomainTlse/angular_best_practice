@@ -34,6 +34,11 @@
               "src/custom-theme.sass",
               "src/styles.sass"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/styles/"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -102,6 +107,11 @@
             "styles": [
               "src/styles.sass"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/styles/"
+              ]
+            },
             "scripts": []
           }
         },
