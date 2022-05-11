@@ -1,3 +1,5 @@
+@import "variables"
+
 .abp--section--loader
   display: flex
   align-content: center
@@ -56,13 +58,13 @@
           animation-direction: alternate
 
           &.white
-            background-color: white
-            box-shadow: 0 50px 50px 0 transparentize(white, 0.7)
+            background-color: $loader--white
+            box-shadow: 0 50px 50px 0 transparentize($loader--white, 0.7)
 
 
-          &.red
-            background-color: #fc7171
-            box-shadow: 0 50px 50px 0 transparentize(#fc7171, 0.7)
+          &.pink
+            background-color: $loader--pink
+            box-shadow: 0 50px 50px 0 transparentize($loader--pink, 0.7)
             animation-delay: 0.2s
 
       .abp--boom--container
@@ -92,13 +94,13 @@
             animation-iteration-count: infinite
             margin-left: -15px
             border-width: 0 2.5px 5px 2.5px
-            border-color: transparent transparent #42e599 transparent
+            border-color: transparent transparent $loader--triangle transparent
             animation-name: boom-triangle
 
             &.abp--big
               margin-left: -25px
               border-width: 0 5px 10px 5px
-              border-color: transparent transparent #fade28 transparent
+              border-color: transparent transparent $loader--triangle--big transparent
               animation-name: boom-triangle-big
 
 
@@ -106,7 +108,7 @@
             width: 8px
             height: 8px
             border-radius: 100%
-            background-color: #d15ff4
+            background-color: $loader--disc
             animation-name: boom-disc
             animation-duration: 1s
             animation-timing-function: ease-out
@@ -124,7 +126,7 @@
             margin-left: -30px
 
             &.white
-              border: 1px solid white
+              border: 1px solid $loader--white
 
 
             &.abp--big
@@ -133,11 +135,7 @@
               margin-left: 0
 
               &.white
-                border: 2px solid white
-
-          &:after
-            background-color: rgba(178, 215, 232, 0.2)
-
+                border: 2px solid $loader--white
 
         .abp--shape
           &.abp--triangle, &.abp--circle, &.abp--circle.big, &.abp--disc
