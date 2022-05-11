@@ -1,0 +1,33 @@
+@import "variables"
+
+.abp--menu--container
+  .abp--close--menu
+    padding: 20px
+
+    mat-icon
+      cursor: pointer
+
+  img
+    max-width: 300px
+
+  a
+    text-decoration: none
+    color: $primary--text--color
+
+    .abp--menu--content
+      width: 300px
+      padding: 10px 20px
+      margin: 5px 0
+      font-size: 15px
+      cursor: pointer
+
+      &:hover
+        background: $hover--menu
+
+      &.active
+        background-color: $active--menu
+        cursor: pointer
+
+.abp--section--page--container
+  width: 100vw
+  height: 100vh
