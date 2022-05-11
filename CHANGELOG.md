@@ -1,6 +1,6 @@
-#CHANGELOG
+# CHANGELOG
 
-##[1.0.0] 14/05/2022
+## [1.0.0] 09/05/2022
 
 ### Added
 
@@ -21,8 +21,9 @@
 - Mise à jour du titre de l'application
 - Mise à jour de la charte graphique
 
-##[1.1.0] 14/05/2022
+## [1.1.0] 11/05/2022
 
 - Initialisation de la release 1.1.0
 - Mise en place du loader
 - Mise en place des notifications
+- Mise en place du menu
