@@ -20,7 +20,7 @@ export class AppComponent {
       if (event instanceof NavigationStart) {
         this._loaderService.show();
       } else if (event instanceof NavigationEnd) {
-        this._loaderService.hide();
+        // this._loaderService.hide();
       }
     });
   }

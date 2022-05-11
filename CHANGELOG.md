@@ -25,3 +25,4 @@
 
 - Initialisation de la release 1.1.0
 - Mise en place du loader
+- Mise en place des notifications

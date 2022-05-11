@@ -582,6 +582,19 @@ update `angular.json` with
           "src/custom-theme.sass",
           "src/styles.sass"
         ],
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            "src/assets/styles/"
+          ]
+        }
+      },
+      "test": {
+        "options": {
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            "src/assets/styles/"
+          ]
+        },
       }
     }
   }
