@@ -1,4 +1,7 @@
 {
+  "header": {
+    "appName": "Angular Best Practice"
+  },
   "loader": {
     "loading": "Loading",
     "pleaseWait": "Please wait"
