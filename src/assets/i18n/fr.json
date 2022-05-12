@@ -15,5 +15,9 @@
   "menu": {
     "home": "Accueil",
     "graphicalCharter": "Charte graphique"
+  },
+  "pageNotFound": {
+    "title": "Page inexistante",
+    "link": "Retour à l'accueil"
   }
 }
