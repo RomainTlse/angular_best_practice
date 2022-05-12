@@ -28,3 +28,4 @@
 - Mise en place des notifications
 - Mise en place du menu
 - Mise en place du header
+- Mise en place du footer

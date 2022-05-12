@@ -1,4 +1,10 @@
 {
+  "footer": {
+    "angularDocs": "Documentation Angular",
+    "copyright": "©2022",
+    "currentVersion": "Version courante",
+    "developBy": "Développé par"
+  },
   "header": {
     "appName": "Angular Best Practice"
   },

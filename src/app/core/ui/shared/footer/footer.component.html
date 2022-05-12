@@ -1,1 +1,21 @@
-<p>footer works!</p>
+<footer class="abp--footer">
+  <div class="abp--footer--application">
+    <div class="abp--footer--logo"><img src="assets/images/logos/logo-abp.png" alt="Logo Angular Best Practice" /></div>
+    <h4>{{ 'header.appName' | translate }}</h4>
+  </div>
+  <div class="abp--footer--angular">
+    <a [href]="externalLinkService.getSiteUrl('angularDocs')" target="_blank">
+      <button mat-icon-button aria-label="GitHub">
+        <mat-icon svgIcon="angular"></mat-icon>
+      </button>
+      <div>{{ 'footer.angularDocs' | translate }}</div>
+    </a>
+  </div>
+  <div class="abp--footer--version">
+    <span>{{ 'footer.currentVersion' | translate }} {{ version }}</span>
+  </div>
+  <div class="abp--footer--copyright">
+    <div>{{ 'footer.developBy' | translate }} {{ author }}</div>
+    <div>{{ 'footer.copyright' | translate }}</div>
+  </div>
+</footer>
