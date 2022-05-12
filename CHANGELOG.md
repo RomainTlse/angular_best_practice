@@ -30,3 +30,4 @@
 - Mise en place du header
 - Mise en place du footer
 - Mise en place du breadcrumb
+- Mise en place de la page not found
