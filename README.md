@@ -7,6 +7,10 @@ npm 8.3.1
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
+## Installation de `@types/node`
+
+`npm i --save-dev @types/node`
+
 ## Eslint/Prettier/husky/commitlint
 
 ### Reference website
