@@ -6,6 +6,9 @@ import { PageNotFoundComponent } from '../../core/ui/pages/page-not-found/page-n
 const routes: Routes = [
   {
     path: 'cookingrecipe',
+    data: {
+      breadcrumb: 'Home',
+    },
     children: [
       {
         path: '',

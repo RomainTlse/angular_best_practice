@@ -16,6 +16,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 @NgModule({
   declarations: [LoaderComponent, MessageComponent, BreadcrumbComponent, FooterComponent, HeaderComponent, MenuComponent],
   imports: [CommonModule, MatIconModule, TranslateModule, MatSidenavModule, RouterModule, MatButtonModule, MatToolbarModule],
-  exports: [LoaderComponent, MessageComponent, MenuComponent],
+  exports: [LoaderComponent, MessageComponent, MenuComponent, BreadcrumbComponent],
 })
 export class UiModule {}
