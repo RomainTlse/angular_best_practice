@@ -1,4 +1,7 @@
 {
+  "common": {
+    "backToHome": "Retour à l'accueil"
+  },
   "footer": {
     "angularDocs": "Documentation Angular",
     "copyright": "©2022",
@@ -16,8 +19,17 @@
     "home": "Accueil",
     "graphicalCharter": "Charte graphique"
   },
+  "pageInProgress": {
+    "title": "Page en cours de réalisation",
+    "days": "Jours",
+    "hours": "Heures",
+    "minutes": "Minutes",
+    "seconds": "Secondes",
+    "productionStart": "La mise en production a lieu aujourd'hui",
+    "countdownReleaseDate": "Compte à rebours avant la mise en production",
+    "bigDay": "C'est le grand jour"
+  },
   "pageNotFound": {
-    "title": "Page inexistante",
-    "link": "Retour à l'accueil"
+    "title": "Page inexistante"
   }
 }

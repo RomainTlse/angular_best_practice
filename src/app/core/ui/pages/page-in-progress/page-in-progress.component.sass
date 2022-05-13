@@ -1,0 +1,55 @@
+@import "variables"
+
+.abp--section--page-in-progress
+  display: flex
+  align-items: center
+  justify-content: center
+  position: relative
+  flex-wrap: wrap
+
+  .abp--page-in-progress--title,
+  .abp--page-in-progress--countdown,
+  .abp--page-in-progress--redirect
+    width: 100%
+    text-align: center
+
+  .abp--page-in-progress--desc
+    span
+      font-size: 20px
+  img
+    max-height: calc(100vh - 500px)
+
+  .abp--page-in-progress--countdown
+    .abp--countdown--title
+      font-size: 32px
+      margin-top: 10px
+
+    .abp--countdown--container
+      color: $primary--text--color
+      margin: 0 auto
+      text-align: center
+
+      li
+        display: inline-block
+        font-size: 1.5em
+        list-style-type: none
+        padding: 1em
+        text-transform: uppercase
+        border-radius: 5px
+        margin: 0 10px
+
+        span
+          display: block
+          font-size: 3.5rem
+
+      .abp--days
+        background-color: #00940A
+
+      .abp--hours
+        background-color: #1B9467
+
+      .abp--minutes
+        background-color: #07E090
+
+      .abp--seconds
+        background-color: #28E09D

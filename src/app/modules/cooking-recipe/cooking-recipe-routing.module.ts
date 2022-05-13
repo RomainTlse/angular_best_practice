@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from '../../core/ui/pages/page-not-found/page-not-found.component';
+import { PageInProgressComponent } from '../../core/ui/pages/page-in-progress/page-in-progress.component';
+import { RedirectToProgressPageGuard } from './guards/redirect-to-progress-page.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +17,20 @@ const routes: Routes = [
         loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
         component: HomeComponent,
       },
+      {
+        path: 'list',
+        component: PageInProgressComponent,
+        canActivate: [RedirectToProgressPageGuard],
+        data: {
+          date: '05/13/2022 21:36',
+        },
+      },
     ],
+  },
+  {
+    path: 'pageinprogress',
+    loadChildren: () => import('../../core/ui/pages/page-in-progress/page-in-progress.module').then(m => m.PageInProgressModule),
+    component: PageInProgressComponent,
   },
   {
     path: '**',
