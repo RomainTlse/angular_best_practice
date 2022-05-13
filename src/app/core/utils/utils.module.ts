@@ -5,5 +5,6 @@ import { SassHelperComponent } from './components/sass-helper/sass-helper.compon
 @NgModule({
   declarations: [SassHelperComponent],
   imports: [CommonModule],
+  exports: [SassHelperComponent],
 })
 export class UtilsModule {}

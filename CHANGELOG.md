@@ -32,3 +32,4 @@
 - Mise en place du breadcrumb
 - Mise en place de la page not found
 - Mise en place de la page in progress
+- Gestion du component `sass-helper`
