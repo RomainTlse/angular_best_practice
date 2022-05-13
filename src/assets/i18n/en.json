@@ -1,4 +1,7 @@
 {
+  "common": {
+    "backToHome": "Back To Home"
+  },
   "footer": {
     "angularDocs": "Angular docs",
     "copyright": "©2022",
@@ -15,5 +18,18 @@
   "menu": {
     "home": "Home",
     "graphicalCharter": "Graphical Charter"
+  },
+  "pageInProgress": {
+    "title": "Under construction",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "productionStart": "The launch takes place today",
+    "countdownReleaseDate": "Countdown to release date",
+    "bigDay": "Today's the day"
+  },
+  "pageNotFound": {
+    "title": "Page not found"
   }
 }

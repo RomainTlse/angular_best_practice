@@ -1,1 +1,27 @@
-<p>page-in-progress works!</p>
+<section class="abp--section--page-in-progress abp--contenair--page">
+  <div class="abp--page-in-progress--title">
+    <h1>{{ 'pageInProgress.title' | translate }}</h1>
+  </div>
+  <img src="assets/images/page-in-progress.png" alt="Page in progress" />
+  <div class="abp--page-in-progress--countdown">
+    <div class="abp--countdown--title" id="headline">{{ 'pageInProgress.' + title | translate }}</div>
+    <div class="abp--countdown--container">
+      <div *ngIf="showCountDown">
+        <ul>
+          <li class="abp--days"><span>{{ days }}</span> {{ 'pageInProgress.days' | translate }}</li>
+          <li class="abp--hours"><span>{{ hours }}</span> {{ 'pageInProgress.hours' | translate }}</li>
+          <li class="abp--minutes"><span>{{ minutes }}</span> {{ 'pageInProgress.minutes' | translate }}</li>
+          <li class="abp--seconds"><span>{{ seconds }}</span> {{ 'pageInProgress.seconds' | translate }}</li>
+        </ul>
+      </div>
+      <div class="abp--countdown--emoji" *ngIf="showReleaseDate">
+        <span>{{ 'pageInProgress.productionStart' | translate }}</span>
+        <span>🥳</span>
+        <span>🎉</span>
+      </div>
+    </div>
+  </div>
+  <div class="abp--page-in-progress--redirect">
+    <h2 routerLink="/">{{ 'common.backToHome' | translate }}</h2>
+  </div>
+</section>
