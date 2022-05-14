@@ -33,3 +33,5 @@
 - Mise en place de la page not found
 - Mise en place de la page in progress
 - Gestion du component `sass-helper`
+- Création du service `http-request`
+-
