@@ -1243,6 +1243,8 @@ cooking-recipe
 ├── components
 ├── pages
 │   └── home
+├── resolvers
+│   └── cooking.resolver.ts
 ├── cooking-recipe.module.ts
 └── cooking-recipe-routing.module.ts
 ```
@@ -1255,7 +1257,7 @@ ng g m modules/cooking-recipe --routing --module=app
 
 ###### Initialisation des pages
 
-####### `page-in-progress`
+####### `cooking-recipe`
 
 ```
 ng g m modules/cooking-recipe/pages/home --module=modules/cooking-recipe
@@ -1296,7 +1298,11 @@ const routes: Routes = [
 export class CookingRecipeRoutingModule {}
 ```
 
-/!\ voir pour rajouter un shared.module
+###### Initialisation des resolvers
+
+####### `cooking.resolver.ts`
+
+`ng g resolver modules/cooking-recipe/resolvers/cooking`
 
 ## Mise en place de l'internationalisation
 

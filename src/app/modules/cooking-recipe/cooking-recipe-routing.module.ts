@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from '../../core/ui/pages/page-not-found/page-not-found.component';
 import { PageInProgressComponent } from '../../core/ui/pages/page-in-progress/page-in-progress.component';
 import { RedirectToProgressPageGuard } from './guards/redirect-to-progress-page.guard';
+import { CookingResolver } from './resolvers/cooking.resolver';
 
 const routes: Routes = [
   {
@@ -16,6 +17,9 @@ const routes: Routes = [
         path: '',
         loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
         component: HomeComponent,
+        resolve: {
+          cooking: CookingResolver,
+        },
       },
       {
         path: 'list',
