@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { SassHelperComponent } from '../../../../core/utils/components/sass-helper/sass-helper.component';
-import { HttpRequestService } from '../../../../core/utils/services/http-request.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +10,12 @@ import { HttpRequestService } from '../../../../core/utils/services/http-request
 export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild(SassHelperComponent) appSassHelper!: SassHelperComponent;
 
-  constructor(private _httpRequestService: HttpRequestService) {}
+  constructor(private _route: ActivatedRoute) {}
 
   ngOnInit() {
-    this._httpRequestService.getDatas('assets/documents/cooking.json').subscribe(datas => {
-      console.log(datas);
+    console.log(this._route.data);
+    this._route.data.subscribe(datas => {
+      console.log(datas['cooking']);
     });
   }
 

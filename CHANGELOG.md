@@ -34,4 +34,4 @@
 - Mise en place de la page in progress
 - Gestion du component `sass-helper`
 - Création du service `http-request`
--
+- Mise en place des resolvers
