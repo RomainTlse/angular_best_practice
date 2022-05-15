@@ -13,9 +13,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private _route: ActivatedRoute) {}
 
   ngOnInit() {
-    console.log(this._route.data);
     this._route.data.subscribe(datas => {
-      console.log(datas['cooking']);
+      console.log(datas);
     });
   }
 

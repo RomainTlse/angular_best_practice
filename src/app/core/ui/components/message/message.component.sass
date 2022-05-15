@@ -9,17 +9,18 @@
   display: flex
   align-items: flex-end
   justify-content: center
+  z-index: 2
 
   .abp--notification
     padding: 25px
     position: relative
-    width: 300px
+    width: 500px
     margin: 12.5px
     border-radius: 4px
 
     .abp--icon--animation
       position: absolute
-      animation: roll 3s ease-in-out infinite
+      animation: roll 5s ease-in-out infinite
 
     .abp--close
       position: absolute
@@ -73,13 +74,13 @@
 @keyframes roll
   0%
     transform: rotate(0deg)
-    left: 5px
+    left: 15px
 
   50%
-    left: 220px
+    left: 410px
     transform: rotate(45deg)
 
   100%
     transform: rotate(0deg)
-    left: 5px
+    left: 15px
 

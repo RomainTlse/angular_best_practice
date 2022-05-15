@@ -2,6 +2,10 @@
   "common": {
     "backToHome": "Back To Home"
   },
+  "error": {
+    "title": "OOPS! Server Error.",
+    "description": "Our teams are already working on it. Please come back later."
+  },
   "footer": {
     "angularDocs": "Angular docs",
     "copyright": "©2022",

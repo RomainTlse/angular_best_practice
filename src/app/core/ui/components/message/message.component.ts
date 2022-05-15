@@ -10,12 +10,11 @@ import { MessageService } from '../../services/message.service';
 })
 export class MessageComponent implements OnDestroy {
   public message: Message;
-  private _subscription?: Subscription;
+  private readonly _subscription?: Subscription;
 
   constructor(private _messageService: MessageService) {
     this.message = { show: false, type: '', title: '', description: '' };
     this._subscription = this._messageService.messageState.subscribe((state: Message) => {
-      console.log(state);
       this.message = state;
     });
   }

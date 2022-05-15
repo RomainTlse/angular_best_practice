@@ -35,3 +35,4 @@
 - Gestion du component `sass-helper`
 - Création du service `http-request`
 - Mise en place des resolvers
+- Gestion de l'intercepteur http
