@@ -26,15 +26,10 @@ const routes: Routes = [
         component: PageInProgressComponent,
         canActivate: [RedirectToProgressPageGuard],
         data: {
-          date: '05/13/2022 21:36',
+          date: '05/17/2022 21:36',
         },
       },
     ],
-  },
-  {
-    path: 'pageinprogress',
-    loadChildren: () => import('../../core/ui/pages/page-in-progress/page-in-progress.module').then(m => m.PageInProgressModule),
-    component: PageInProgressComponent,
   },
   {
     path: '**',

@@ -23,6 +23,10 @@
     "home": "Home",
     "graphicalCharter": "Graphical Charter"
   },
+  "pageError": {
+    "title": "Server Error",
+    "description": "Our teams are already working on it. Please check back later."
+  },
   "pageInProgress": {
     "title": "Under construction",
     "days": "Days",

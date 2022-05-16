@@ -3,10 +3,11 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse
 import { catchError, Observable, throwError } from 'rxjs';
 import { MessageService } from '../../ui/services/message.service';
 import { LoaderService } from '../../ui/services/loader.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
-  constructor(private _messageService: MessageService, private _loaderService: LoaderService) {}
+  constructor(private _messageService: MessageService, private _loaderService: LoaderService, private _router: Router) {}
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
@@ -17,6 +18,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
           title: 'error.title',
           description: 'error.description',
         });
+        this._router.navigate(['error-server']);
         return throwError(error.message);
       })
     );

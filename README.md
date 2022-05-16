@@ -992,6 +992,7 @@ ui
 │   ├── loader.ts
 │   └── message.ts
 ├── pages
+│   ├── page-error
 │   ├── page-in-progress
 │   └── page-not-found
 ├── services
@@ -1048,18 +1049,28 @@ ng g interface core/ui/interfaces/message
 
 ##### Initialisation des pages
 
+###### `page-error`
+
+```
+ng g m core/ui/pages/page-error --module=core/ui
+ng g c core/ui/pages/page-error --module=core/ui/pages/page-error
+
 ###### `page-in-progress`
 
 ```
-ng g m core/ui/pages/page-in-progress
+
+ng g m core/ui/pages/page-in-progress --module=core/ui
 ng g c core/ui/pages/page-in-progress --module=core/ui/pages/page-in-progress
+
 ```
 
 ###### `page-not-found`
 
 ```
-ng g m core/ui/pages/page-not-found
+
+ng g m core/ui/pages/page-not-found --module=core/ui
 ng g c core/ui/pages/page-not-found --module=core/ui/pages/page-not-found
+
 ```
 
 ##### Initialisation des services
@@ -1067,19 +1078,25 @@ ng g c core/ui/pages/page-not-found --module=core/ui/pages/page-not-found
 ###### `breadcrumb`
 
 ```
+
 ng g s core/ui/services/breadcrumb
+
 ```
 
 ###### `loader`
 
 ```
+
 ng g s core/ui/services/loader
+
 ```
 
 ###### `message`
 
 ```
+
 ng g s core/ui/services/message
+
 ```
 
 ##### Initialisation des composants 'shared'
@@ -1087,25 +1104,33 @@ ng g s core/ui/services/message
 ###### `breadcrumb`
 
 ```
+
 ng g c core/ui/shared/breadcrumb --module=core/ui
+
 ```
 
 ###### `footer`
 
 ```
+
 ng g c core/ui/shared/footer --module=core/ui
+
 ```
 
 ###### `header`
 
 ```
+
 ng g c core/ui/shared/header --module=core/ui
+
 ```
 
 ###### `menu`
 
 ```
+
 ng g c core/ui/shared/menu --module=core/ui
+
 ```
 
 #### Création du module `utils`
@@ -1113,24 +1138,28 @@ ng g c core/ui/shared/menu --module=core/ui
 ##### Architecture de base du module
 
 ```
+
 utils
 ├── components
-│   └── sass-helper
+│ └── sass-helper
 ├── interceptors
-│   └── http-request.interceptor.ts
+│ └── http-request.interceptor.ts
 ├── interfaces
-│   └── config.ts
+│ └── config.ts
 ├── services
-│   ├── external-link.service.ts
-│   ├── global-config.service.ts
-│   └── http-request.services.ts
+│ ├── external-link.service.ts
+│ ├── global-config.service.ts
+│ └── http-request.services.ts
 └── ui.module.ts
+
 ```
 
 ##### Initialisation du module
 
 ```
+
 ng g m core/utils --module=core
+
 ```
 
 ##### Initialisation des components
@@ -1138,7 +1167,9 @@ ng g m core/utils --module=core
 ###### `sass-helper`
 
 ```
+
 ng g c core/utils/components/sass-helper --module=core/utils
+
 ```
 
 ##### Initialisation des interceptors
@@ -1146,7 +1177,9 @@ ng g c core/utils/components/sass-helper --module=core/utils
 ###### `http-request`
 
 ```
+
 ng g interceptor core/utils/interceptors/http-request
+
 ```
 
 ##### Initialisation des interfaces
@@ -1154,7 +1187,9 @@ ng g interceptor core/utils/interceptors/http-request
 ###### `config`
 
 ```
+
 ng g interface core/utils/interfaces/config
+
 ```
 
 ##### Initialisation des services
@@ -1162,19 +1197,25 @@ ng g interface core/utils/interfaces/config
 ###### `external-link`
 
 ```
+
 ng g s core/utils/services/external-link
+
 ```
 
 ###### `global-config`
 
 ```
+
 ng g s core/utils/services/global-config
+
 ```
 
 ###### `http-request`
 
 ```
+
 ng g s core/utils/services/http-request
+
 ```
 
 ### `Modules`
@@ -1184,18 +1225,22 @@ ng g s core/utils/services/http-request
 ##### Architecture de base du module
 
 ```
+
 graphical-charter
 ├── components
 ├── pages
-│   └── home
+│ └── home
 ├── graphical-charter.module.ts
 └── graphical-charter-routing.module.ts
+
 ```
 
 ##### Initialisation du module `graphical-charter`
 
 ```
+
 ng g m modules/graphical-charter --routing --module=app
+
 ```
 
 ###### Initialisation des pages
@@ -1203,9 +1248,11 @@ ng g m modules/graphical-charter --routing --module=app
 ####### `page-in-progress`
 
 ```
+
 ng g m modules/graphical-charter/pages/home --module=modules/graphical-charter
 ng g c modules/graphical-charter/pages/home --module=modules/graphical-charter/pages/home
-```
+
+````
 
 Dans `src\app\modules\graphical-charter\graphical-charter.module.ts` modifier les routes
 
@@ -1232,7 +1279,7 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class GraphicalCharterRoutingModule {}
-```
+````
 
 #### `cooking-recipe`
 
