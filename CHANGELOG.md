@@ -36,3 +36,4 @@
 - Création du service `http-request`
 - Mise en place des resolvers
 - Gestion de l'intercepteur http
+- Mise en place de la page d'erreur

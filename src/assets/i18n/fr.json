@@ -23,6 +23,10 @@
     "home": "Accueil",
     "graphicalCharter": "Charte graphique"
   },
+  "pageError": {
+    "title": "Erreur serveur",
+    "description": "Nos équipes y travaillent déjà. Merci de revenir plus tard."
+  },
   "pageInProgress": {
     "title": "Page en cours de réalisation",
     "days": "Jours",

@@ -1,0 +1,44 @@
+@import "variables"
+
+.abp--section--page-error
+  display: flex
+  align-items: center
+  justify-content: center
+  position: relative
+
+  .abp--oops
+    width: 33%
+    height: 100%
+    background-color: $secondary--background
+    display: flex
+    align-items: center
+    justify-content: center
+
+    img
+      width: 75%
+
+  .abp--500
+    width: 66%
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-wrap: wrap
+
+    .abp--500--title,
+    .abp--500--description
+      width: 100%
+      text-align: center
+      margin: 30px 0 20px
+
+    img
+      height: 500px
+
+  .abp--mj
+    position: absolute
+    width: 200px
+    height: 200px
+    left: calc(33% - 100px)
+
+    img
+      width: 100%
+      height: 100%

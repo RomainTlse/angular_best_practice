@@ -12,10 +12,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { PageErrorModule } from './pages/page-error/page-error.module';
 
 @NgModule({
   declarations: [LoaderComponent, MessageComponent, BreadcrumbComponent, FooterComponent, HeaderComponent, MenuComponent],
-  imports: [CommonModule, MatIconModule, TranslateModule, MatSidenavModule, RouterModule, MatButtonModule, MatToolbarModule],
+  imports: [CommonModule, MatIconModule, TranslateModule, MatSidenavModule, RouterModule, MatButtonModule, MatToolbarModule, PageErrorModule],
   exports: [LoaderComponent, MessageComponent, MenuComponent, BreadcrumbComponent],
 })
 export class UiModule {}
