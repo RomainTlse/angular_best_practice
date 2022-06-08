@@ -1,1 +1,22 @@
-<p>menu works!</p>
+<mat-drawer-container class="abp--menu--container" [hasBackdrop]="true">
+  <mat-drawer #drawer [mode]="'over'">
+    <!-- menu -->
+    <div class="abp--close--menu">
+      <mat-icon aria-hidden="false" aria-label="Close" class="abp--cursor--pointer" (click)="drawer.toggle()"> close </mat-icon>
+    </div>
+    <img src="assets/images/logos/dark_pink.png" alt="menu" />
+    <a routerLink="/cookingrecipe" (click)="drawer.toggle()">
+      <div class="abp--menu--content" routerLinkActive="active">{{ 'menu.home' | translate }}</div>
+    </a>
+    <a routerLink="/graphicalcharter" (click)="drawer.toggle()">
+      <div class="abp--menu--content" routerLinkActive="active">{{ 'menu.graphicalCharter' | translate }}</div>
+    </a>
+  </mat-drawer>
+  <mat-drawer-content>
+    <section class="abp--section--page--container">
+      <app-header [drawer]="drawer"></app-header>
+      <router-outlet></router-outlet>
+      <app-footer></app-footer>
+    </section>
+  </mat-drawer-content>
+</mat-drawer-container>

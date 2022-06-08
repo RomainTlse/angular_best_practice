@@ -1,1 +1,10 @@
-<p>message works!</p>
+<section class="abp--section--message" *ngIf="message.show">
+  <div class="abp--notification abp--notification--{{ message.type }}">
+    <div class="abp--close">
+      <mat-icon aria-hidden="false" aria-label="Close icon" (click)="closeMessage()">close</mat-icon>
+    </div>
+    <img src="assets/images/icones/{{ message.type }}.png" class="abp--icon--animation" alt="{{ message.title }}" />
+    <div class="abp--notification--title">{{ message.title | translate }}</div>
+    <div class="abp--notification--message">{{ message.description | translate }}</div>
+  </div>
+</section>

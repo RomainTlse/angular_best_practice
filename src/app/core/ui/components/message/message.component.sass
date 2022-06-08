@@ -1,0 +1,86 @@
+@import "variables"
+
+.abp--section--message
+  position: absolute
+  bottom: 25px
+  margin: auto
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: flex-end
+  justify-content: center
+  z-index: 2
+
+  .abp--notification
+    padding: 25px
+    position: relative
+    width: 500px
+    margin: 12.5px
+    border-radius: 4px
+
+    .abp--icon--animation
+      position: absolute
+      animation: roll 5s ease-in-out infinite
+
+    .abp--close
+      position: absolute
+      top: 5px
+      right: 5px
+      cursor: pointer
+
+    .abp--notification--title
+      font-size: 40px
+      margin-top: 100px
+      text-align: center
+      font-family: 'Iceland', cursive
+
+    .abp--notification--message
+      font-size: 20px
+      color: $carbon
+      margin-top: 15px
+
+  .abp--notification--success
+    background-image: linear-gradient(to right top, $notification--success-1, $notification--success-2, $notification--success-3, $notification--success-4, $notification--success-5)
+
+  .abp--notification--error
+    background-image: linear-gradient(to right top, $notification--error-1, $notification--error-2, $notification--error-3, $notification--error-4, $notification--error-5)
+
+  .abp--notification--info
+    background-image: linear-gradient(to right top, $notification--info-1, $notification--info-2, $notification--info-3, $notification--info-4, $notification--info-5)
+
+  .abp--notification--warning
+    background-image: linear-gradient(to right top, $notification--warning-1, $notification--warning-2, $notification--warning-3, $notification--warning-4, $notification--warning-5)
+
+
+  .abp--notification--success .abp--close,
+  .abp--notification--success .abp--notification--title
+    color: $notification--success-text
+
+
+  .abp--notification--error .abp--close,
+  .abp--notification--error .abp--notification--title
+    color: $notification--error-text
+
+
+  .abp--notification--info .abp--close,
+  .abp--notification--info .abp--notification--title
+    color: $notification--info-text
+
+
+  .abp--notification--warning .abp--close,
+  .abp--notification--warning .abp--notification--title
+    color: $notification--warning-text
+
+@keyframes roll
+  0%
+    transform: rotate(0deg)
+    left: 15px
+
+  50%
+    left: 410px
+    transform: rotate(45deg)
+
+  100%
+    transform: rotate(0deg)
+    left: 15px
+

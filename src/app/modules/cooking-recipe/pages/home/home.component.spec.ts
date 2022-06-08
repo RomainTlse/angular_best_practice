@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { createTranslateLoader } from '../../../../app.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -22,6 +23,7 @@ describe('HomeComponent', () => {
           isolate: true,
         }),
         HttpClientModule,
+        RouterTestingModule,
       ],
       declarations: [HomeComponent],
     }).compileComponents();

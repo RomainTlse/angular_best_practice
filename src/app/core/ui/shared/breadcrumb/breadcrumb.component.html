@@ -1,1 +1,18 @@
-<p>breadcrumb works!</p>
+<section class="abp--section--breadcrumb">
+  <nav class="abp--breadcrumps--container">
+    <ul class="abp--breadcrumb">
+      <li
+        *ngFor="let breadcrumb of breadcrumbs$ | async; last as isLast; first as isFirst"
+        class="abp--breadcrumb__item"
+        [ngClass]="{ 'abp--breadcrumb__item-firstChild': isFirst, 'abp--breadcrumb__item-lastChild': isLast }">
+        <a [href]="breadcrumb.url" *ngIf="!isLast">
+          <span class="abp--breadcrumb__inner">
+            <mat-icon *ngIf="isFirst" aria-hidden="false" aria-label="Home icon"> home </mat-icon>
+            <span class="abp--breadcrumb__title">{{ breadcrumb.label }}</span>
+          </span>
+        </a>
+        <span *ngIf="isLast" class="abp--breadcrumb__title">{{ breadcrumb.label }}</span>
+      </li>
+    </ul>
+  </nav>
+</section>

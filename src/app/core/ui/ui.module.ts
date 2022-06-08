@@ -6,9 +6,17 @@ import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { MenuComponent } from './shared/menu/menu.component';
+import { MatIconModule } from '@angular/material/icon';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { PageErrorModule } from './pages/page-error/page-error.module';
 
 @NgModule({
   declarations: [LoaderComponent, MessageComponent, BreadcrumbComponent, FooterComponent, HeaderComponent, MenuComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, MatIconModule, TranslateModule, MatSidenavModule, RouterModule, MatButtonModule, MatToolbarModule, PageErrorModule],
+  exports: [LoaderComponent, MessageComponent, MenuComponent, BreadcrumbComponent],
 })
 export class UiModule {}

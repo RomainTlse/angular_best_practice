@@ -1,1 +1,19 @@
-<p>header works!</p>
+<header class="abp--header">
+  <mat-toolbar color="primary">
+    <div class="abp--header--icon">
+      <button mat-icon-button aria-label="Menu">
+        <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+      </button>
+    </div>
+    <div class="abp--header--title">
+      <span>{{ 'header.appName' | translate }}</span>
+    </div>
+    <div class="abp--header--icon--gitlab">
+      <a [href]="externalLinkService.getSiteUrl('github')" target="_blank">
+        <button mat-icon-button aria-label="GitHub">
+          <mat-icon svgIcon="github"></mat-icon>
+        </button>
+      </a>
+    </div>
+  </mat-toolbar>
+</header>

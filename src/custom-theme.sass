@@ -54,8 +54,8 @@ $angular_best_practice-primary: mat.define-palette($angular_best_practice-primar
 $angular_best_practice-accent: mat.define-palette($angular_best_practice-primary-palette, A200, A100, A400)
 $angular_best_practice-warn: mat.define-palette($angular_best_practice-warn-palette)
 
-$angular_best_practice-background-palette: (status-bar: map_get($angular_best_practice-accent-palette, 800),app-bar: map_get($angular_best_practice-accent-palette, 800), background: $primary--background, hover: rgba(white, 0.04), card: map_get($angular_best_practice-accent-palette, 700), dialog: map_get($angular_best_practice-accent-palette, 800),disabled-button: rgba(white, 0.25),raised-button: map_get($angular_best_practice-accent-palette, 800),focused-button: rgba(white, 0.25),selected-button: map_get($angular_best_practice-primary-palette, 200),selected-disabled-button: map_get($angular_best_practice-primary-palette, 100),disabled-button-toggle: black,unselected-chip: map_get($angular_best_practice-primary-palette, 300),disabled-list-option: rgba(white, 0.25),tooltip: map_get($angular_best_practice-accent-palette, 900))
-$angular_best_practice-foreground-palette: (base: map_get($angular_best_practice-accent-palette, 200),divider: rgba(#f088af, 0.25),dividers: rgba(#f088af, 0.25),disabled: rgba(white, 0.5),disabled-button: rgba(white, 0.5),disabled-text: rgba(white, 0.5),elevation: rgba(black, 0.2),hint-text: rgba(white, 0.2),secondary-text: rgba(white, 0.75),icon: rgba(white, 0.54),icons: rgba(white, 0.54),text: rgba(white, 0.87),slider-min: rgba(white, 0.57),slider-off: rgba(white, 0.26),slider-off-active: rgba(white, 0.58))
+$angular_best_practice-background-palette: (status-bar: map_get($angular_best_practice-accent-palette, 800),app-bar: map_get($angular_best_practice-accent-palette, 800), background: $primary--background, hover: $primary--text--color, card: map_get($angular_best_practice-accent-palette, 700), dialog: map_get($angular_best_practice-accent-palette, 800),disabled-button: rgba(white, 0.25),raised-button: map_get($angular_best_practice-accent-palette, 800),focused-button: rgba(white, 0.25),selected-button: map_get($angular_best_practice-primary-palette, 200),selected-disabled-button: map_get($angular_best_practice-primary-palette, 100),disabled-button-toggle: black,unselected-chip: map_get($angular_best_practice-primary-palette, 300),disabled-list-option: rgba(white, 0.25),tooltip: map_get($angular_best_practice-accent-palette, 900))
+$angular_best_practice-foreground-palette: (base: map_get($angular_best_practice-accent-palette, 200),divider: rgba($secondary--background--pink, 0.25),dividers: rgba($secondary--background--pink, 0.25),disabled: rgba(white, 0.5),disabled-button: rgba(white, 0.5),disabled-text: rgba(white, 0.5),elevation: rgba(black, 0.2),hint-text: rgba(white, 0.2),secondary-text: rgba(white, 0.75),icon: rgba(white, 0.54),icons: rgba(white, 0.54),text: rgba($primary--text--color, 0.97),slider-min: rgba(white, 0.57),slider-off: rgba(white, 0.26),slider-off-active: rgba(white, 0.58))
 
 // define theme
 @function create-esa-theme()
@@ -81,3 +81,8 @@ body
   text-transform: uppercase
   line-height: 1.5
   letter-spacing: 0.25em
+
+a
+  text-decoration: none
+  font-family: 'Montserrat', sans-serif
+  color: $link--text--color

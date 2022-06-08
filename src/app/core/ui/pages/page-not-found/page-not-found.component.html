@@ -1,1 +1,17 @@
-<p>page-not-found works!</p>
+<section class="abp--section--page-not-found abp--contenair--page">
+  <div class="abp--oops">
+    <img src="assets/images/oops.png" alt="OOPS" />
+  </div>
+  <div class="abp--404">
+    <div class="abp--404--title">
+      <h1>{{ 'pageNotFound.title' | translate }}</h1>
+    </div>
+    <img src="assets/images/404.png" alt="404" />
+    <div class="abp--404--redirect">
+      <h2 routerLink="/">{{ 'common.backToHome' | translate }}</h2>
+    </div>
+  </div>
+  <div class="abp--mj">
+    <img src="assets/images/micheal-jackson-dancing.gif" alt="Michael Jackson dancing" />
+  </div>
+</section>

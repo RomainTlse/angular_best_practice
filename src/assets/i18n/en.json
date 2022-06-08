@@ -1,3 +1,43 @@
 {
-  "hello": "Hello world !"
+  "common": {
+    "backToHome": "Back To Home"
+  },
+  "error": {
+    "title": "OOPS! Server Error.",
+    "description": "Our teams are already working on it. Please come back later."
+  },
+  "footer": {
+    "angularDocs": "Angular docs",
+    "copyright": "©2022",
+    "currentVersion": "Current version",
+    "developBy": "Develop by"
+  },
+  "header": {
+    "appName": "Angular Best Practice"
+  },
+  "loader": {
+    "loading": "Loading",
+    "pleaseWait": "Please wait"
+  },
+  "menu": {
+    "home": "Home",
+    "graphicalCharter": "Graphical Charter"
+  },
+  "pageError": {
+    "title": "Server Error",
+    "description": "Our teams are already working on it. Please check back later."
+  },
+  "pageInProgress": {
+    "title": "Under construction",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "productionStart": "The launch takes place today",
+    "countdownReleaseDate": "Countdown to release date",
+    "bigDay": "Today's the day"
+  },
+  "pageNotFound": {
+    "title": "Page not found"
+  }
 }
