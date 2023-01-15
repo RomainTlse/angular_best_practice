@@ -985,10 +985,14 @@ ng g m core/auth --module=core
 ```
 ui
 ├── components
+│   ├── breadcrumb
+│   ├── footer
+│   ├── header
 │   ├── loader
+│   ├── menu
 │   └── message
 ├── interfaces
-│   ├── breadcrump.ts
+│   ├── breadcrumb.ts
 │   ├── loader.ts
 │   └── message.ts
 ├── pages
@@ -999,11 +1003,6 @@ ui
 │   ├── breadcrump.services.ts
 │   ├── loader.services.ts
 │   └── message.services.ts
-├── shared
-│   ├── breadcrumps
-│   ├── footer
-│   ├── header
-│   └── menu
 └── ui.module.ts
 ```
 
@@ -1015,10 +1014,42 @@ ng g m core/ui --module=core
 
 ##### Initialisation des components
 
+###### `breadcrumb`
+
+```
+
+ng g c core/ui/components/breadcrumb --module=core/ui
+
+```
+
+###### `footer`
+
+```
+
+ng g c core/ui/components/footer --module=core/ui
+
+```
+
+###### `header`
+
+```
+
+ng g c core/ui/components/header --module=core/ui
+
+```
+
 ###### `loader`
 
 ```
 ng g c core/ui/components/loader --module=core/ui
+```
+
+###### `menu`
+
+```
+
+ng g c core/ui/components/menu --module=core/ui
+
 ```
 
 ###### `message`
@@ -1054,6 +1085,8 @@ ng g interface core/ui/interfaces/message
 ```
 ng g m core/ui/pages/page-error --module=core/ui
 ng g c core/ui/pages/page-error --module=core/ui/pages/page-error
+
+```
 
 ###### `page-in-progress`
 
@@ -1109,30 +1142,6 @@ ng g c core/ui/shared/breadcrumb --module=core/ui
 
 ```
 
-###### `footer`
-
-```
-
-ng g c core/ui/shared/footer --module=core/ui
-
-```
-
-###### `header`
-
-```
-
-ng g c core/ui/shared/header --module=core/ui
-
-```
-
-###### `menu`
-
-```
-
-ng g c core/ui/shared/menu --module=core/ui
-
-```
-
 #### Création du module `utils`
 
 ##### Architecture de base du module
@@ -1141,15 +1150,15 @@ ng g c core/ui/shared/menu --module=core/ui
 
 utils
 ├── components
-│ └── sass-helper
+│   └── sass-helper
 ├── interceptors
-│ └── http-request.interceptor.ts
+│   └── http-request.interceptor.ts
 ├── interfaces
-│ └── config.ts
+│   └── config.ts
 ├── services
-│ ├── external-link.service.ts
-│ ├── global-config.service.ts
-│ └── http-request.services.ts
+│   ├── external-link.service.ts
+│   ├── global-config.service.ts
+│   └── http-request.services.ts
 └── ui.module.ts
 
 ```
@@ -1218,6 +1227,19 @@ ng g s core/utils/services/http-request
 
 ```
 
+### Module `shared`
+
+#### Architecture de base du module
+
+```
+shared
+├── [+] components
+├── [+] directives
+├── [+] interfaces
+├── [+] pipes
+└── [+] services
+```
+
 ### `Modules`
 
 #### `graphical-charter`
@@ -1229,7 +1251,7 @@ ng g s core/utils/services/http-request
 graphical-charter
 ├── components
 ├── pages
-│ └── home
+│   └── home
 ├── graphical-charter.module.ts
 └── graphical-charter-routing.module.ts
 
@@ -1252,7 +1274,7 @@ ng g m modules/graphical-charter --routing --module=app
 ng g m modules/graphical-charter/pages/home --module=modules/graphical-charter
 ng g c modules/graphical-charter/pages/home --module=modules/graphical-charter/pages/home
 
-````
+```
 
 Dans `src\app\modules\graphical-charter\graphical-charter.module.ts` modifier les routes
 
@@ -1279,7 +1301,7 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class GraphicalCharterRoutingModule {}
-````
+```
 
 #### `cooking-recipe`
 
