@@ -37,3 +37,7 @@
 - Mise en place des resolvers
 - Gestion de l'intercepteur http
 - Mise en place de la page d'erreur
+
+## [1.2.0] 15/01/2023
+
+- Mise en place du shared
